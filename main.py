@@ -1,7 +1,7 @@
 import requests
 import time
 
-API_KEY = 'AIzaSyDeiny8h-3N5naKLjKC_9jX4MZf29tpNxE'
+#API_KEY =
 BASE_URL = 'https://maps.googleapis.com/maps/api/place/textsearch/json'
 
 TARGET_KEYWORDS = [
