@@ -47,7 +47,7 @@ for month, file_info in files_by_month.items():
     final_df['Avg Rank'] = final_df[rank_cols].mean(axis=1, skipna=True)
 
     # Reorder columns
-    cols = ['City', 'Keyword'] + rank_cols + ['Avg Rank', 'Rating', 'Reviews']
+    cols = ['City', 'Keyword'] + ['Avg Rank', 'Rating', 'Reviews']
     final_df = final_df[cols]
     final_df = final_df.fillna('None')
     # Save the output
