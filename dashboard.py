@@ -3,7 +3,8 @@ import pandas as pd
 import plotly.express as px
 
 st.set_page_config(page_title="Marketing Dashboard", layout="wide")
-st.header("📊 Google Places Ranking")
+st.header("📊 Google Places Ranking - August 2025")
+st.divider()
 
 # ---------------------
 # Load the local Excel file from the project folder
@@ -70,13 +71,14 @@ with col1:
     st.plotly_chart(fig_overall)
 
 with col2:
+    st.markdown("<div style='height: 140px;'></div>", unsafe_allow_html=True)
     m1, m2, m3, _ = st.columns(4)
     m2.metric("🔢 Avg. Rank", f"{df['Avg Rank'].mean():.2f}")
     m2.metric("⭐ Avg. Rating", f"{df['Rating'].mean():.2f}")
     m3.metric("🗣️ Total Reviews", f"{int(df['Reviews'].sum() / df['Keyword'].nunique())}")
     m3.metric("🗣️ Avg. Reviews", f"{int(df['Reviews'].mean())}")
 
-
+st.divider()
 # ---------------------
 # 2. VIEW BY Location
 st.header("🏙️ City View")
@@ -125,16 +127,13 @@ with col5:
     st.plotly_chart(fig2)
 
 with col6:
-    st.write("")
-    st.write("")
-    st.write("")
-    st.write("")
-    col7, col8, _, _ = st.columns(4)
+    st.markdown("<div style='height: 140px;'></div>", unsafe_allow_html=True)
+    col7, col8, col9, _ = st.columns(4)
     col8.metric("🔢 Avg. Rank", f"{city_data['Avg Rank'].mean():.2f}")
     col8.metric("⭐ Avg. Rating", f"{city_data['Rating'].mean():.2f}")
-    col8.metric("🗣️ Total Reviews", f"{int(city_data['Reviews'].sum() / city_data['Keyword'].nunique())}")
+    col9.metric("🗣️ Total Reviews", f"{int(city_data['Reviews'].sum() / city_data['Keyword'].nunique())}")
 
 # ---------------------
 # Optional: raw table
-with st.expander("📄 See Raw Data"):
+with st.expander("📄 Explore Data"):
     st.dataframe(df)
